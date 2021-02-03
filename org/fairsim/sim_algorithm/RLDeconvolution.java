@@ -22,6 +22,11 @@ import org.fairsim.linalg.Vec;
 import org.fairsim.linalg.Vec2d;
 import org.fairsim.utils.Tool;
 
+/*
+Explanation of RL deconvolution can be seen at: 
+https://www.strollswithmydog.com/elements-of-richardson-lucy-deconvolution/
+*/
+
 /** Implementation of 2D Richardson-Lucy deconvolution steps */
 public class RLDeconvolution {
 

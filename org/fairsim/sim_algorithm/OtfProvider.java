@@ -27,6 +27,8 @@ import org.fairsim.utils.Conf;
 import org.fairsim.utils.SimpleMT;
 
 
+// OTF stands for Optical Transfer Function
+
 /**
  * OTFs and associated functions (attenuation, apotization, ...).
  * Provides loading, saving, simple estimation, conversion
