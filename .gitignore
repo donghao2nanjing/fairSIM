@@ -6,4 +6,11 @@ test*.xml
 *.tar.bz2
 org/fairsim/git-version.txt
 target/*
+.vscode/*
+.settings/*
+.classpath
+.project
+.idea/*
+fairSIM.iml
+
 

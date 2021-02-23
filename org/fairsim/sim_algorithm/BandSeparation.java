@@ -85,6 +85,7 @@ public class BandSeparation {
 	}
 
 	// create the matrix
+	// For 2 beam, 3 phases, M is a 3 x 3 matrix.
 	M = new MatrixComplex(nrPhases,(bands*2)-1);
 
 	// loop phases

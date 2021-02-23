@@ -90,9 +90,10 @@ public class SimAlgorithm {
 
 	    // idx of low band (phase detection) and high band (shift vector detection)
 	    // will be the same for two-beam
+		// Why? What is the difference between two-beam and three-beam ?
 	    final int lb = 1;
 	    final int hb = (param.dir(angIdx).nrBand()==3)?(3):(1);
-	    final int fb = (fitBand==1)?(lb):(hb);
+	    final int fb = (fitBand==1)?(lb):(hb); // fit band to calculate kx and ky, the spatial frequency? 
 
 	    // compute band separation
 	    Vec2d.Cplx [] separate = Vec2d.createArrayCplx( dir.nrComp(), w, h);
@@ -121,7 +122,7 @@ public class SimAlgorithm {
 	    Vec2d.Cplx c1 = separate[lb].duplicate();
 	    Vec2d.Cplx c2 = separate[hb].duplicate();
 
-	    // dampen region around DC 
+	    // dampen region around DC: for correlation?
 	    c0.times( otfAtt );
 	    c1.times( otfAtt );
 	    c2.times( otfAtt ); 
@@ -138,6 +139,7 @@ public class SimAlgorithm {
 	    double [] peak ;
 	    double minDist =2;
 	   
+		// find peaks
 	    if (fitExclude>0) {
 		// find the highest peak in corr of band0 to highest band 
 		// with minDist of otfCutoff from origin, store in 'param'
@@ -153,6 +155,7 @@ public class SimAlgorithm {
 		    angIdx, peak[0], peak[1]));
 	    }
 
+		// precise fitting
 	    // fit the peak to sub-pixel precision by cross-correlation of
 	    // Fourier-shifted components
 	    Vec2d.Real cntrl    = Vec2d.createReal(30,10);
@@ -211,7 +214,7 @@ public class SimAlgorithm {
 		// store the result
 		param.dir(angIdx).setPxPy(   -peak[0], -peak[1] );
 		param.dir(angIdx).setPhaOff( p1.phase() );
-		param.dir(angIdx).setModulation( 1, p1.hypot() );
+		param.dir(angIdx).setModulation( 1, p1.hypot() ); // what is hypot? 
 	    }
 
 

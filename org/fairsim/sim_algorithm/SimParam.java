@@ -71,6 +71,7 @@ public class SimParam implements Vec2d.Size {
     private int rlIterations = 5;		    // number of Richardson-Lucy iterations
     
 
+	// What does mod mean here? Modulation depth? The unit?
     double modLowLimit = 0.4, modHighLimit = 1.1, defaultModulation = 0.65;
 
     // Transfer function, OTF attenuation, Apotization
